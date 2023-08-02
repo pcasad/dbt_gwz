@@ -1,0 +1,35 @@
+version: 2
+
+models:
+
+    - name: stg_adwords
+    
+      columns:
+          - name: ads_cost
+            description: cost ads
+            tests : 
+            - not_null 
+    - name: stg_bing
+    
+      columns:
+          - name: ads_cost
+            description: cost ads
+            tests : 
+            - not_null
+   
+    - name: stg_criteo
+    
+      columns:
+          - name: ads_cost
+            description: cost ads
+            tests : 
+            - not_null
+
+    - name: stg_facebook
+    
+      columns:
+          - name: ads_cost
+            description: cost ads
+            tests : 
+            - not_null
+          
