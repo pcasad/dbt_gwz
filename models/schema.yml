@@ -28,3 +28,11 @@ models:
 
           - name: margin
             description: turnover - cogs
+
+    - name: orders          
+      columns:
+          - name: orders_id
+            description: unique orders 
+            tests : 
+            - not_null 
+            - unique
