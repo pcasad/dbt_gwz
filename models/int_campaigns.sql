@@ -1,3 +1,7 @@
+{{ config(materialized='table', partition_by='date_column_name') }}
+
+
+
 WITH
 
     adwords AS (SELECT * FROM {{ref('stg_adwords')}})
