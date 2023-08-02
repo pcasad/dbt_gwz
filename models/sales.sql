@@ -12,14 +12,16 @@ SELECT
   ,s.orders_id
   ,s.pdt_id AS products_id
   ###########
-	-- qty --
+-- qty --
 	,s.quantity AS qty
-  -- revenue --
+-- revenue --
   ,s.revenue AS turnover
-  -- cost --
+-- cost --
   ,CAST(p.purchSE_PRICE AS FLOAT64) AS purchase_price
 	,ROUND(s.quantity*CAST(p.purchSE_PRICE AS FLOAT64),2) AS purchase_cost
-	-- margin --
-	,s.revenue - s.quantity*CAST(p.purchSE_PRICE AS FLOAT64) AS margin
+-- margin --
+    ,{{ margin_percent('s.revenue', 's.quantity*CAST(p.purchSE_PRICE AS FLOAT64)') }} AS margin_percent
+    ,{{margin('s.revenue','s.quantity*CAST(p.purchSE_PRICE AS FLOAT64)')}} AS margin
+
 FROM sales s
 INNER JOIN product p ON s.pdt_id = p.products_id
